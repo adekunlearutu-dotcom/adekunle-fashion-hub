@@ -1,53 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adekunle Fashion Hub</title>
+
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#f5f5f5;
-text-align:center;
+    background:#f5f5f5;
 }
+
+header{
+    background:#000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+header h1{
+    color:gold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+}
+
+.hero{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h2{
+    font-size:40px;
+}
+
+.hero button{
+    background:gold;
+    color:black;
+    border:none;
+    padding:12px 25px;
+    margin-top:15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.products{
+    padding:40px 20px;
+}
+
+.products h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
 .product{
-background:white;
-padding:20px;
-margin:20px;
-border-radius:10px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    text-align:center;
+    overflow:hidden;
 }
-button{
-background:black;
-color:white;
-padding:10px;
-border:none;
+
+.product img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product h3{
+    margin:10px;
+}
+
+.price{
+    color:goldenrod;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button.buy{
+    background:black;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Adekunle Fashion Hub</h1>
+<header>
+    <h1>Adekunle Fashion Hub</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
 
-<p>
-Quality shoes, stylish bags, and elegant jewellery at affordable prices.
-</p>
+<section class="hero">
+    <h2>Luxury Fashion Store</h2>
+    <p>Bags • Shoes • Jewellery</p>
+    <button>Shop Now</button>
+</section>
 
-<div class="product">
-<h2>Fashion Shoes</h2>
-<p>₦25,000</p>
-<button>Buy Now</button>
-</div>
+<section class="products">
+    <h2>Featured Products</h2>
 
-<div class="product">
-<h2>Luxury Bags</h2>
-<p>₦18,000</p>
-<button>Buy Now</button>
-</div>
+    <div class="product-grid">
 
-<div class="product">
-<h2>Elegant Jewellery</h2>
-<p>₦12,000</p>
-<button>Buy Now</button>
-</div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="Bag">
+            <h3>Designer Hand Bag</h3>
+            <p class="price">₦28,000</p>
+            <button class="buy">Buy Now</button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Shoe">
+            <h3>Luxury Shoe</h3>
+            <p class="price">₦35,000</p>
+            <button class="buy">Buy Now</button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600" alt="Jewellery">
+            <h3>Premium Jewellery</h3>
+            <p class="price">₦18,000</p>
+            <button class="buy">Buy Now</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Adekunle Fashion Hub</p>
+    <p>Quality Fashion For Everyone</p>
+</footer>
 
 </body>
 </html>
