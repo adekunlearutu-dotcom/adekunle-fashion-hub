@@ -1,19 +1,288 @@
-<div class="product">
-    <img src="YOUR_IMAGE_URL" alt="Product">
-    <h3>Gucci Marmont Bag</h3>
-    <p class="price">₦95,000</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adekunle Fashion Hub</title>
 
-    <a href="https://wa.me/2347032414376?text=Hello%20Adekunle%20Fashion%20Hub,%20I%20want%20to%20order%20the%20Gucci%20Marmont%20Bag%20for%20₦95,000." target="_blank">
-        <button class="buy">Order on WhatsApp</button>
-    </a>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f8f5f0;
+}
+
+header{
+background:#111827;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+header h1{
+color:#fbbf24;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
+}
+
+.hero{
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200');
+background-size:cover;
+background-position:center;
+padding:100px 20px;
+text-align:center;
+color:white;
+}
+
+.hero h2{
+font-size:45px;
+}
+
+.hero p{
+margin-top:10px;
+font-size:18px;
+}
+
+.hero button{
+margin-top:20px;
+padding:12px 25px;
+background:#10b981;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.products{
+padding:40px 20px;
+}
+
+.products h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.product{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.product img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.product h3{
+margin:15px 0;
+}
+
+.price{
+color:#f59e0b;
+font-size:22px;
+font-weight:bold;
+}
+
+.buy{
+background:#10b981;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+margin:15px;
+cursor:pointer;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Adekunle Fashion Hub</h1>
+
+<nav>
+<a href="#">Home</a>
+<a href="#shop">Shop</a>
+<a href="https://wa.me/2347032414376">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h2>Luxury Fashion Collection</h2>
+<p>Bags • Shoes • Rings • Earrings • Chains</p>
+
+<a href="#shop">
+<button>Shop Now</button>
+</a>
+</section>
+
+<section class="products" id="shop">
+
+<h2>Featured Products</h2>
+
+<div class="product-grid">
+
+<!-- BAG 1 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600">
+<h3>Louis Vuitton Bag</h3>
+<p class="price">₦85,000</p>
+<button class="buy" onclick="payWithPaystack('Louis Vuitton Bag',85000)">Pay Now</button>
 </div>
 
+<!-- BAG 2 -->
 <div class="product">
-    <img src="YOUR_IMAGE_URL" alt="Product">
-    <h3>Nike Air Max 270</h3>
-    <p class="price">₦65,000</p>
-
-    <a href="https://wa.me/2347032414376?text=Hello%20Adekunle%20Fashion%20Hub,%20I%20want%20to%20order%20the%20Nike%20Air%20Max%20270%20for%20₦65,000." target="_blank">
-        <button class="buy">Order on WhatsApp</button>
-    </a>
+<img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600">
+<h3>Gucci Marmont Bag</h3>
+<p class="price">₦95,000</p>
+<button class="buy" onclick="payWithPaystack('Gucci Marmont Bag',95000)">Pay Now</button>
 </div>
+
+<!-- BAG 3 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600">
+<h3>Prada Luxury Bag</h3>
+<p class="price">₦110,000</p>
+<button class="buy" onclick="payWithPaystack('Prada Luxury Bag',110000)">Pay Now</button>
+</div>
+
+<!-- SHOE 1 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600">
+<h3>Nike Air Max</h3>
+<p class="price">₦55,000</p>
+<button class="buy" onclick="payWithPaystack('Nike Air Max',55000)">Pay Now</button>
+</div>
+
+<!-- SHOE 2 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600">
+<h3>Adidas Superstar</h3>
+<p class="price">₦60,000</p>
+<button class="buy" onclick="payWithPaystack('Adidas Superstar',60000)">Pay Now</button>
+</div>
+
+<!-- SHOE 3 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600">
+<h3>Puma RS-X</h3>
+<p class="price">₦58,000</p>
+<button class="buy" onclick="payWithPaystack('Puma RS-X',58000)">Pay Now</button>
+</div>
+
+<!-- SHOE 4 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=600">
+<h3>Balenciaga Runner</h3>
+<p class="price">₦95,000</p>
+<button class="buy" onclick="payWithPaystack('Balenciaga Runner',95000)">Pay Now</button>
+</div>
+
+<!-- SHOE 5 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600">
+<h3>Luxury Sandal</h3>
+<p class="price">₦35,000</p>
+<button class="buy" onclick="payWithPaystack('Luxury Sandal',35000)">Pay Now</button>
+</div>
+
+<!-- RING -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600">
+<h3>Diamond Ring</h3>
+<p class="price">₦25,000</p>
+<button class="buy" onclick="payWithPaystack('Diamond Ring',25000)">Pay Now</button>
+</div>
+
+<!-- CHAIN -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600">
+<h3>Gold Chain</h3>
+<p class="price">₦40,000</p>
+<button class="buy" onclick="payWithPaystack('Gold Chain',40000)">Pay Now</button>
+</div>
+
+<!-- EARRING -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=600">
+<h3>Luxury Earrings</h3>
+<p class="price">₦18,000</p>
+<button class="buy" onclick="payWithPaystack('Luxury Earrings',18000)">Pay Now</button>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Adekunle Fashion Hub</p>
+<p>WhatsApp: +2347032414376</p>
+</footer>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+function payWithPaystack(product, amount){
+
+let email = prompt("Enter your email");
+
+if(!email){
+alert("Email required");
+return;
+}
+
+let handler = PaystackPop.setup({
+key:'YOUR_PUBLIC_KEY_HERE',
+email:email,
+amount:amount * 100,
+currency:'NGN',
+
+callback:function(response){
+
+let msg =
+"Hello Adekunle Fashion Hub,%0A%0AI have paid for:%0A" +
+product +
+"%0AAmount: ₦" + amount +
+"%0AReference: " + response.reference;
+
+window.open(
+"https://wa.me/2347032414376?text=" + msg,
+"_blank"
+);
+
+}
+});
+
+handler.openIframe();
+}
+</script>
+
+</body>
+</html>
