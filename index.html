@@ -10,7 +10,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
@@ -27,10 +27,6 @@ header{
 header h1{
     color:gold;
     font-size:40px;
-}
-
-nav{
-    margin-top:10px;
 }
 
 nav a{
@@ -135,21 +131,20 @@ footer{
     <h1>Adekunle Fashion Hub</h1>
     <nav>
         <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">Contact</a>
+        <a href="#products">Shop</a>
+        <a href="https://wa.me/2347032414376">Contact</a>
     </nav>
 </header>
 
 <section class="hero">
     <h2>Luxury Fashion Store</h2>
     <p>Bags • Shoes • Jewellery</p>
-
-    <a href="https://wa.me/2347032414376?text=Hello%20Adekunle%20Fashion%20Hub,%20I%20want%20to%20make%20an%20order." target="_blank">
+    <a href="#products">
         <button>Shop Now</button>
     </a>
 </section>
 
-<section class="products">
+<section class="products" id="products">
 <h2>Featured Products</h2>
 
 <div class="product-grid">
@@ -158,30 +153,27 @@ footer{
 <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="Bag">
 <h3>Designer Hand Bag</h3>
 <p class="price">₦28,000</p>
-
-<a href="https://wa.me/2347032414376?text=Hello,%20I%20want%20to%20buy%20the%20Designer%20Hand%20Bag%20for%20₦28,000." target="_blank">
-<button class="buy">Order on WhatsApp</button>
-</a>
+<button class="buy" onclick="payWithPaystack('Designer Hand Bag',28000)">
+Pay ₦28,000
+</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Shoe">
 <h3>Luxury Shoe</h3>
 <p class="price">₦35,000</p>
-
-<a href="https://wa.me/2347032414376?text=Hello,%20I%20want%20to%20buy%20the%20Luxury%20Shoe%20for%20₦35,000." target="_blank">
-<button class="buy">Order on WhatsApp</button>
-</a>
+<button class="buy" onclick="payWithPaystack('Luxury Shoe',35000)">
+Pay ₦35,000
+</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600" alt="Jewellery">
 <h3>Premium Jewellery</h3>
 <p class="price">₦18,000</p>
-
-<a href="https://wa.me/2347032414376?text=Hello,%20I%20want%20to%20buy%20the%20Premium%20Jewellery%20for%20₦18,000." target="_blank">
-<button class="buy">Order on WhatsApp</button>
-</a>
+<button class="buy" onclick="payWithPaystack('Premium Jewellery',18000)">
+Pay ₦18,000
+</button>
 </div>
 
 </div>
@@ -191,6 +183,48 @@ footer{
 <p>© 2026 Adekunle Fashion Hub</p>
 <p>WhatsApp: +2347032414376</p>
 </footer>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+function payWithPaystack(product, amount) {
+
+    let email = prompt("adekunlearutu@gmail.com);
+
+    if(!email){
+        alert(adekunlearutu@gmail.com);
+        return;
+    }
+
+    let handler = PaystackPop.setup({
+        key: 'key: 'pk_test_ae1ba684bca4ee9fd6f5cab9dd4e31d8f6051df9
+        email: email,
+        amount: amount * 100,
+        currency: 'NGN',
+
+        callback: function(response) {
+
+            let message =
+            "Hello Adekunle Fashion Hub,%0A%0A" +
+            "I have successfully paid for:%0A" +
+            product + "%0A" +
+            "Amount: ₦" + amount + "%0A" +
+            "Reference: " + response.reference;
+
+            window.open(
+                "https://wa.me/2347032414376?text=" + message,
+                "_blank"
+            );
+        },
+
+        onClose: function() {
+            alert('Payment cancelled');
+        }
+    });
+
+    handler.openIframe();
+}
+</script>
 
 </body>
 </html>
