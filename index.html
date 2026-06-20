@@ -15,13 +15,14 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#f8f8f8;
+background:#f4f6fb;
 color:#222;
 }
 
+/* Header */
 header{
-background:#000;
-padding:20px 8%;
+background:#102542;
+padding:15px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -31,31 +32,69 @@ z-index:1000;
 }
 
 .logo{
-color:#d4af37;
+color:#f4c542;
 font-size:30px;
 font-weight:bold;
+  .menu-toggle{
+display:none;
+font-size:30px;
+color:white;
+cursor:pointer;
 }
 
-nav a{
+#navMenu a{
 color:white;
 text-decoration:none;
 margin-left:20px;
 font-weight:bold;
+transition:.3s;
 }
 
+#navMenu a:hover{
+color:#f4c542;
+}
+
+/* Mobile Menu */
+@media(max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+#navMenu{
+display:none;
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#102542;
+flex-direction:column;
+padding:20px 0;
+}
+
+#navMenu.active{
+display:flex;
+}
+
+#navMenu a{
+margin:10px 0;
+text-align:center;
+}
+}
+
+/* Hero Slider Banner */
 .hero{
 height:90vh;
-background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600');
-background-size:cover;
-background-position:center;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
 text-align:center;
 color:white;
-padding:20px;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600');
+background-size:cover;
+background-position:center;
 }
 
 .hero h1{
@@ -65,31 +104,29 @@ margin-bottom:15px;
 
 .hero p{
 font-size:22px;
-margin-bottom:25px;
 max-width:700px;
 }
 
-.hero a{
-background:#d4af37;
+.hero-btn{
+background:#f4c542;
 color:black;
-padding:15px 35px;
+padding:15px 30px;
 text-decoration:none;
 font-weight:bold;
 border-radius:8px;
-}
-
-.section-title{
+margin-top:20px;
+  }.section-title{
 text-align:center;
 font-size:40px;
 margin:60px 0 30px;
-color:#111;
+color:#102542;
 }
 
 .product-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
-padding:0 8% 60px;
+padding:0 20px 60px;
 }
 
 .product{
@@ -111,7 +148,7 @@ padding:15px 10px 5px;
 }
 
 .price{
-color:#d4af37;
+color:#f4c542;
 font-size:24px;
 font-weight:bold;
 }
@@ -127,149 +164,281 @@ border-radius:8px;
 font-weight:bold;
 }
 
+.search{
+text-align:center;
+padding:30px;
+}
+
+.search input{
+width:80%;
+max-width:500px;
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
 .contact{
-background:#111;
+background:#102542;
 color:white;
 padding:60px 20px;
 text-align:center;
 }
 
-.contact h2{
-margin-bottom:15px;
-}
-
-.contact p{
-margin:10px 0;
-}
-
-.contact a{
-display:inline-block;
-margin-top:15px;
-background:#25D366;
-padding:12px 25px;
-color:white;
-text-decoration:none;
-border-radius:8px;
-}
-
 footer{
-background:black;
+background:#081423;
 color:white;
 text-align:center;
 padding:20px;
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <div class="logo">Adekunle Fashion Hub</div>
 
-<nav>
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="navMenu">
 <a href="#">Home</a>
 <a href="#products">Products</a>
+<a href="#blog">Blog</a>
+<a href="#faq">FAQ</a>
 <a href="#contact">Contact</a>
 </nav>
+
 </header>
 
 <section class="hero">
+
 <h1>Luxury Fashion Collection</h1>
+
 <p>
-Discover premium bags, luxury shoes, rings, chains and earrings at affordable prices.
+Premium Bags, Shoes, Rings, Chains and Earrings
 </p>
 
-<a href="#products">SHOP NOW</a>
+<a href="#products" class="hero-btn">
+SHOP NOW
+</a>
+
+</section>
+<section class="search">
+
+<input type="text" id="searchInput"
+placeholder="Search bags, shoes, jewellery...">
+
 </section>
 
-<h2 class="section-title" id="products">Featured Products</h2>
+<h2 class="section-title" id="products">
+Featured Products
+</h2>
 
 <div class="product-grid">
 
-<!-- BAGS -->
+<!-- BAG 1 -->
 
 <div class="product">
+
 <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600">
+
 <h3>Louis Vuitton Bag</h3>
+
 <p class="price">₦85,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Louis%20Vuitton%20Bag%20for%20₦85,000">Order on WhatsApp</a>
+
+<a class="buy-btn"
+href="https://wa.me/2347032414376?text=I%20want%20to%20order%20the%20Louis%20Vuitton%20Bag">
+Order on WhatsApp
+</a>
+
 </div>
 
+<!-- BAG 2 -->
+
 <div class="product">
+
 <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600">
+
 <h3>Gucci Marmont Bag</h3>
+
 <p class="price">₦95,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Gucci%20Marmont%20Bag%20for%20₦95,000">Order on WhatsApp</a>
+
+<a class="buy-btn"
+href="https://wa.me/2347032414376?text=I%20want%20to%20order%20the%20Gucci%20Marmont%20Bag">
+Order on WhatsApp
+</a>
+
 </div>
 
+<!-- BAG 3 -->
+
 <div class="product">
+
 <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600">
+
 <h3>Prada Luxury Bag</h3>
+
 <p class="price">₦110,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Prada%20Luxury%20Bag%20for%20₦110,000">Order on WhatsApp</a>
+
+<a class="buy-btn"
+href="https://wa.me/2347032414376?text=I%20want%20to%20order%20the%20Prada%20Luxury%20Bag">
+Order on WhatsApp
+</a>
+
 </div>
 
-<!-- SHOES -->
+<!-- SHOE 1 -->
 
 <div class="product">
+
 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600">
+
 <h3>Nike Air Max</h3>
+
 <p class="price">₦55,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Nike%20Air%20Max%20for%20₦55,000">Order on WhatsApp</a>
+
+<a class="buy-btn"
+href="https://wa.me/2347032414376?text=I%20want%20to%20order%20Nike%20Air%20Max">
+Order on WhatsApp
+</a>
+
 </div>
 
+<!-- SHOE 2 -->
+
 <div class="product">
+
 <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600">
+
 <h3>Adidas Superstar</h3>
+
 <p class="price">₦60,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Adidas%20Superstar%20for%20₦60,000">Order on WhatsApp</a>
-</div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600">
-<h3>Puma RS-X</h3>
-<p class="price">₦58,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Puma%20RS-X%20for%20₦58,000">Order on WhatsApp</a>
-</div>
+<a class="buy-btn"
+href="https://wa.me/2347032414376?text=I%20want%20to%20order%20Adidas%20Superstar">
+Order on WhatsApp
+</a>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=600">
-<h3>Balenciaga Runner</h3>
-<p class="price">₦95,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Balenciaga%20Runner%20for%20₦95,000">Order on WhatsApp</a>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600">
-<h3>Luxury Sandal</h3>
-<p class="price">₦35,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Luxury%20Sandal%20for%20₦35,000">Order on WhatsApp</a>
 </div>
 
 <!-- JEWELLERY -->
 
 <div class="product">
+
 <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600">
+
 <h3>Diamond Ring</h3>
+
 <p class="price">₦25,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Diamond%20Ring%20for%20₦25,000">Order on WhatsApp</a>
+
+<a class="buy-btn"
+href="https://wa.me/2347032414376?text=I%20want%20to%20order%20Diamond%20Ring">
+Order on WhatsApp
+</a>
+
+</div>
+
+  </div>
+  <!-- FAQ SECTION -->
+
+<section id="faq">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div style="max-width:900px;margin:auto;padding:20px;line-height:2;">
+
+<h3>How do I place an order?</h3>
+<p>
+Click any "Order on WhatsApp" button and send your order request.
+</p>
+
+<h3>Do you deliver nationwide?</h3>
+<p>
+Yes, we deliver to all states in Nigeria.
+</p>
+
+<h3>How long does delivery take?</h3>
+<p>
+Delivery usually takes 2-5 working days.
+</p>
+
+<h3>Can I return a product?</h3>
+<p>
+Yes, subject to our return policy.
+</p>
+
+<h3>What payment methods do you accept?</h3>
+<p>
+Bank Transfer and other agreed payment methods.
+</p>
+
+</div>
+
+</section>
+
+<!-- BLOG SECTION -->
+
+<section id="blog">
+
+<h2 class="section-title">
+Fashion Blog
+</h2>
+
+<div class="product-grid">
+
+<div class="product">
+
+<div style="padding:20px">
+
+<h3>Luxury Bag Trends 2026</h3>
+
+<p>
+Discover the latest luxury handbag trends dominating fashion this year.
+</p>
+
+</div>
+
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600">
-<h3>Gold Chain</h3>
-<p class="price">₦40,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Gold%20Chain%20for%20₦40,000">Order on WhatsApp</a>
+
+<div style="padding:20px">
+
+<h3>How To Style Designer Shoes</h3>
+
+<p>
+Learn how to match luxury footwear with different outfits.
+</p>
+
+</div>
+
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=600">
-<h3>Luxury Earrings</h3>
-<p class="price">₦18,000</p>
-<a class="buy-btn" href="https://wa.me/2347032414376?text=Hello%20I%20want%20to%20order%20the%20Luxury%20Earrings%20for%20₦18,000">Order on WhatsApp</a>
+
+<div style="padding:20px">
+
+<h3>Top Jewellery Picks</h3>
+
+<p>
+Explore the most popular rings, chains and earrings this season.
+</p>
+
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
@@ -279,15 +448,54 @@ Discover premium bags, luxury shoes, rings, chains and earrings at affordable pr
 
 <p>📱 +2347032414376</p>
 
-<a href="https://wa.me/2347032414376">
+<br>
+
+<a class="buy-btn"
+href="https://wa.me/2347032414376">
 Chat on WhatsApp
 </a>
 
 </section>
 
 <footer>
-<p>© 2026 Adekunle Fashion Hub. All Rights Reserved.</p>
+
+<p>
+© 2026 Adekunle Fashion Hub
+</p>
+
+<p>
+Luxury Fashion • Bags • Shoes • Jewellery
+</p>
+
 </footer>
 
+<script>
+
+function toggleMenu(){
+document.getElementById("navMenu")
+.classList.toggle("active");
+}
+
+document.getElementById("searchInput")
+.addEventListener("keyup", function(){
+
+let filter =
+this.value.toLowerCase();
+
+document.querySelectorAll(".product")
+.forEach(function(product){
+
+product.style.display =
+product.innerText.toLowerCase()
+.includes(filter)
+? ""
+: "none";
+
+});
+
+});
+
+</script>
+
 </body>
-</html>
+  </html>
