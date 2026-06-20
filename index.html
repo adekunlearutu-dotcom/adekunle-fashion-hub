@@ -4,498 +4,188 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adekunle Fashion Hub</title>
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#f4f6fb;
-color:#222;
-}
-
-/* Header */
-header{
-background:#102542;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.logo{
-color:#f4c542;
-font-size:30px;
-font-weight:bold;
-  .menu-toggle{
-display:none;
-font-size:30px;
-color:white;
-cursor:pointer;
-}
-
-#navMenu a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-weight:bold;
-transition:.3s;
-}
-
-#navMenu a:hover{
-color:#f4c542;
-}
-
-/* Mobile Menu */
+:root{--navy:#102542;--gold:#F4C542;--light:#f5f5f5}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth}
+body{background:#fff;color:#222}
+header{position:sticky;top:0;background:var(--navy);padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000}
+.logo{color:var(--gold);font-size:24px;font-weight:bold}
+nav ul{display:flex;list-style:none;gap:20px}
+nav a{color:#fff;text-decoration:none}
+.menu{display:none;color:#fff;font-size:28px;cursor:pointer}
+.hero{height:420px;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
+.hero-content{background:rgba(0,0,0,.5);padding:20px;border-radius:10px}
+section{padding:60px 5%}
+h2{text-align:center;color:var(--navy);margin-bottom:25px}
+.search{max-width:500px;margin:20px auto;display:block;padding:12px;width:100%}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{border:1px solid #ddd;border-radius:12px;overflow:hidden;transition:.3s;background:#fff}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:220px;object-fit:cover}
+.card-content{padding:15px}
+.price{color:var(--navy);font-weight:bold}
+.btn{display:inline-block;background:var(--gold);color:#000;padding:10px 14px;text-decoration:none;border-radius:6px;margin-top:10px}
+footer{background:var(--navy);color:#fff;padding:30px;text-align:center}
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:2000}
+.popup-box{background:#fff;padding:25px;border-radius:10px;text-align:center;max-width:400px}
+.close{background:var(--gold);border:none;padding:10px 15px;cursor:pointer}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.box{padding:20px;border:1px solid #ddd;border-radius:10px}
 @media(max-width:768px){
-
-.menu-toggle{
-display:block;
+nav ul{display:none;position:absolute;top:60px;left:0;right:0;background:var(--navy);flex-direction:column;padding:20px}
+nav ul.show{display:flex}
+.menu{display:block}
 }
-
-#navMenu{
-display:none;
-position:absolute;
-top:70px;
-left:0;
-width:100%;
-background:#102542;
-flex-direction:column;
-padding:20px 0;
-}
-
-#navMenu.active{
-display:flex;
-}
-
-#navMenu a{
-margin:10px 0;
-text-align:center;
-}
-}
-
-/* Hero Slider Banner */
-.hero{
-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-text-align:center;
-color:white;
-background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600');
-background-size:cover;
-background-position:center;
-}
-
-.hero h1{
-font-size:60px;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:22px;
-max-width:700px;
-}
-
-.hero-btn{
-background:#f4c542;
-color:black;
-padding:15px 30px;
-text-decoration:none;
-font-weight:bold;
-border-radius:8px;
-margin-top:20px;
-  }.section-title{
-text-align:center;
-font-size:40px;
-margin:60px 0 30px;
-color:#102542;
-}
-
-.product-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-padding:0 20px 60px;
-}
-
-.product{
-background:white;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-text-align:center;
-}
-
-.product img{
-width:100%;
-height:260px;
-object-fit:cover;
-}
-
-.product h3{
-padding:15px 10px 5px;
-}
-
-.price{
-color:#f4c542;
-font-size:24px;
-font-weight:bold;
-}
-
-.buy-btn{
-display:inline-block;
-margin:15px;
-padding:12px 20px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-}
-
-.search{
-text-align:center;
-padding:30px;
-}
-
-.search input{
-width:80%;
-max-width:500px;
-padding:12px;
-border:1px solid #ccc;
-border-radius:8px;
-}
-
-.contact{
-background:#102542;
-color:white;
-padding:60px 20px;
-text-align:center;
-}
-
-footer{
-background:#081423;
-color:white;
-text-align:center;
-padding:20px;
-}
-
 </style>
 </head>
-
 <body>
 
-<header>
-
-<div class="logo">Adekunle Fashion Hub</div>
-
-<div class="menu-toggle" onclick="toggleMenu()">
-☰
+<div class="popup" id="popup">
+<div class="popup-box">
+<h2>Welcome to Adekunle Fashion Hub</h2>
+<p>Your destination for luxury fashion and accessories.</p>
+<button class="close" onclick="closePopup()">Enter Store</button>
+</div>
 </div>
 
-<nav id="navMenu">
-<a href="#">Home</a>
-<a href="#products">Products</a>
-<a href="#blog">Blog</a>
-<a href="#faq">FAQ</a>
-<a href="#contact">Contact</a>
+<header>
+<div class="logo">Adekunle Fashion Hub</div>
+<nav>
+<div class="menu" onclick="toggleMenu()">☰</div>
+<ul id="navLinks">
+<li><a href="#products">Products</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#blog">Blog</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
-
 </header>
 
-<section class="hero">
+<div class="hero" id="hero">
+<div class="hero-content">
+<h1>Luxury Fashion Collection 2026</h1>
+<p>Designer Bags, Shoes, Rings, Chains & More</p>
+</div>
+</div>
 
-<h1>Luxury Fashion Collection</h1>
-
-<p>
-Premium Bags, Shoes, Rings, Chains and Earrings
-</p>
-
-<a href="#products" class="hero-btn">
-SHOP NOW
-</a>
-
-</section>
-<section class="search">
-
-<input type="text" id="searchInput"
-placeholder="Search bags, shoes, jewellery...">
-
+<section>
+<input class="search" id="search" placeholder="Search products...">
 </section>
 
-<h2 class="section-title" id="products">
-Featured Products
-</h2>
-
-<div class="product-grid">
-
-<!-- BAG 1 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600">
-
-<h3>Louis Vuitton Bag</h3>
-
-<p class="price">₦85,000</p>
-
-<a class="buy-btn"
-href="https://wa.me/2347032414376?text=I%20want%20to%20order%20the%20Louis%20Vuitton%20Bag">
-Order on WhatsApp
-</a>
-
-</div>
-
-<!-- BAG 2 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600">
-
-<h3>Gucci Marmont Bag</h3>
-
-<p class="price">₦95,000</p>
-
-<a class="buy-btn"
-href="https://wa.me/2347032414376?text=I%20want%20to%20order%20the%20Gucci%20Marmont%20Bag">
-Order on WhatsApp
-</a>
-
-</div>
-
-<!-- BAG 3 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600">
-
-<h3>Prada Luxury Bag</h3>
-
-<p class="price">₦110,000</p>
-
-<a class="buy-btn"
-href="https://wa.me/2347032414376?text=I%20want%20to%20order%20the%20Prada%20Luxury%20Bag">
-Order on WhatsApp
-</a>
-
-</div>
-
-<!-- SHOE 1 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600">
-
-<h3>Nike Air Max</h3>
-
-<p class="price">₦55,000</p>
-
-<a class="buy-btn"
-href="https://wa.me/2347032414376?text=I%20want%20to%20order%20Nike%20Air%20Max">
-Order on WhatsApp
-</a>
-
-</div>
-
-<!-- SHOE 2 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600">
-
-<h3>Adidas Superstar</h3>
-
-<p class="price">₦60,000</p>
-
-<a class="buy-btn"
-href="https://wa.me/2347032414376?text=I%20want%20to%20order%20Adidas%20Superstar">
-Order on WhatsApp
-</a>
-
-</div>
-
-<!-- JEWELLERY -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600">
-
-<h3>Diamond Ring</h3>
-
-<p class="price">₦25,000</p>
-
-<a class="buy-btn"
-href="https://wa.me/2347032414376?text=I%20want%20to%20order%20Diamond%20Ring">
-Order on WhatsApp
-</a>
-
-</div>
-
-  </div>
-  <!-- FAQ SECTION -->
-
-<section id="faq">
-
-<h2 class="section-title">
-Frequently Asked Questions
-</h2>
-
-<div style="max-width:900px;margin:auto;padding:20px;line-height:2;">
-
-<h3>How do I place an order?</h3>
-<p>
-Click any "Order on WhatsApp" button and send your order request.
-</p>
-
-<h3>Do you deliver nationwide?</h3>
-<p>
-Yes, we deliver to all states in Nigeria.
-</p>
-
-<h3>How long does delivery take?</h3>
-<p>
-Delivery usually takes 2-5 working days.
-</p>
-
-<h3>Can I return a product?</h3>
-<p>
-Yes, subject to our return policy.
-</p>
-
-<h3>What payment methods do you accept?</h3>
-<p>
-Bank Transfer and other agreed payment methods.
-</p>
-
-</div>
-
+<section id="products">
+<h2>Featured Products</h2>
+<div class="products" id="productContainer"></div>
 </section>
 
-<!-- BLOG SECTION -->
+<section id="about">
+<h2>About Us</h2>
+<p>Adekunle Fashion Hub delivers premium fashion products with quality, elegance and nationwide delivery.</p>
+</section>
+
+<section>
+<h2>Why Choose Us</h2>
+<div class="grid3">
+<div class="box">Premium Quality Products</div>
+<div class="box">Nationwide Delivery</div>
+<div class="box">Fast WhatsApp Ordering</div>
+</div>
+</section>
+
+<section>
+<h2>Testimonials</h2>
+<div class="grid3">
+<div class="box">“Excellent quality and service.”</div>
+<div class="box">“Fast delivery and beautiful packaging.”</div>
+<div class="box">“My favorite fashion store online.”</div>
+</div>
+</section>
+
+<section>
+<h2>Product Details</h2>
+<p>All products are carefully selected for durability, elegance and premium style.</p>
+</section>
 
 <section id="blog">
-
-<h2 class="section-title">
-Fashion Blog
-</h2>
-
-<div class="product-grid">
-
-<div class="product">
-
-<div style="padding:20px">
-
-<h3>Luxury Bag Trends 2026</h3>
-
-<p>
-Discover the latest luxury handbag trends dominating fashion this year.
-</p>
-
+<h2>Fashion Blog</h2>
+<div class="grid3">
+<div class="box"><h3>Luxury Fashion Trends</h3><p>Discover trending styles.</p></div>
+<div class="box"><h3>Choosing Designer Bags</h3><p>Find the perfect bag.</p></div>
+<div class="box"><h3>Fashion Accessories Guide</h3><p>Style tips for every occasion.</p></div>
 </div>
-
-</div>
-
-<div class="product">
-
-<div style="padding:20px">
-
-<h3>How To Style Designer Shoes</h3>
-
-<p>
-Learn how to match luxury footwear with different outfits.
-</p>
-
-</div>
-
-</div>
-
-<div class="product">
-
-<div style="padding:20px">
-
-<h3>Top Jewellery Picks</h3>
-
-<p>
-Explore the most popular rings, chains and earrings this season.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<!-- CONTACT -->
+<section>
+<h2>Newsletter</h2>
+<input class="search" placeholder="Enter your email">
+</section>
 
-<section class="contact" id="contact">
+<section id="faq">
+<h2>FAQ</h2>
+<div class="box"><b>How do I place an order?</b><p>Click Order Now and chat on WhatsApp.</p></div><br>
+<div class="box"><b>Do you deliver nationwide?</b><p>Yes.</p></div><br>
+<div class="box"><b>How long does delivery take?</b><p>1–5 business days.</p></div><br>
+<div class="box"><b>What payment methods do you accept?</b><p>Bank transfer and approved options.</p></div><br>
+<div class="box"><b>What is your return policy?</b><p>Returns subject to conditions.</p></div>
+</section>
 
+<section id="contact">
 <h2>Contact Us</h2>
-
-<p>📧 adekunlearutu@gmail.com</p>
-
-<p>📱 +2347032414376</p>
-
-<br>
-
-<a class="buy-btn"
-href="https://wa.me/2347032414376">
-Chat on WhatsApp
-</a>
-
+<p>Email: adekunlearutu@gmail.com</p>
+<p>Phone: +2347032414376</p>
 </section>
 
 <footer>
-
-<p>
-© 2026 Adekunle Fashion Hub
-</p>
-
-<p>
-Luxury Fashion • Bags • Shoes • Jewellery
-</p>
-
+<p>Copyright © 2026 Adekunle Fashion Hub. All Rights Reserved.</p>
+<p>adekunlearutu@gmail.com | +2347032414376</p>
 </footer>
 
 <script>
-
-function toggleMenu(){
-document.getElementById("navMenu")
-.classList.toggle("active");
+const products=[
+["Designer Bag Classic","Premium designer bag","₦85,000","https://images.unsplash.com/photo-1542291026-7eec264c27ff"],
+["Designer Bag Elite","Luxury bag","₦95,000","https://images.unsplash.com/photo-1584917865442-de89df76afd3"],
+["Designer Bag Gold","Elegant bag","₦120,000","https://images.unsplash.com/photo-1594223274512-ad4803739b7c"],
+["Luxury Shoe A","Luxury shoe","₦70,000","https://images.unsplash.com/photo-1542291026"],
+["Luxury Shoe B","Luxury shoe","₦75,000","https://images.unsplash.com/photo-1549298916"],
+["Luxury Shoe C","Luxury shoe","₦80,000","https://images.unsplash.com/photo-1525966222134"],
+["Luxury Shoe D","Luxury shoe","₦85,000","https://images.unsplash.com/photo-1543508282"],
+["Luxury Shoe E","Luxury shoe","₦90,000","https://images.unsplash.com/photo-1491553895911"],
+["Sandal A","Comfort sandal","₦25,000","https://images.unsplash.com/photo-1608256246200"],
+["Sandal B","Comfort sandal","₦28,000","https://images.unsplash.com/photo-1525966222134"],
+["Sandal C","Comfort sandal","₦30,000","https://images.unsplash.com/photo-1491553895911"],
+["Ring A","Luxury ring","₦20,000","https://images.unsplash.com/photo-1617038260897"],
+["Ring B","Luxury ring","₦22,000","https://images.unsplash.com/photo-1605100804763"],
+["Ring C","Luxury ring","₦24,000","https://images.unsplash.com/photo-1602751584552"],
+["Chain A","Gold chain","₦35,000","https://images.unsplash.com/photo-1611652022419"],
+["Chain B","Gold chain","₦40,000","https://images.unsplash.com/photo-1599643478518"],
+["Chain C","Gold chain","₦45,000","https://images.unsplash.com/photo-1617038220319"],
+["Earring A","Luxury earrings","₦18,000","https://images.unsplash.com/photo-1635767798638"],
+["Earring B","Luxury earrings","₦19,000","https://images.unsplash.com/photo-1629224316810"],
+["Earring C","Luxury earrings","₦21,000","https://images.unsplash.com/photo-1617038220319"]
+];
+const c=document.getElementById("productContainer");
+function render(list){
+c.innerHTML="";
+list.forEach(p=>{
+c.innerHTML+=`<div class="card"><img src="${p[3]}"><div class="card-content"><h3>${p[0]}</h3><p>${p[1]}</p><p class="price">${p[2]}</p><a class="btn" target="_blank" href="https://wa.me/2347032414376?text=I%20want%20to%20order%20${encodeURIComponent(p[0])}">Order Now</a></div></div>`;
+});
 }
-
-document.getElementById("searchInput")
-.addEventListener("keyup", function(){
-
-let filter =
-this.value.toLowerCase();
-
-document.querySelectorAll(".product")
-.forEach(function(product){
-
-product.style.display =
-product.innerText.toLowerCase()
-.includes(filter)
-? ""
-: "none";
-
+render(products);
+document.getElementById("search").addEventListener("input",e=>{
+render(products.filter(p=>p[0].toLowerCase().includes(e.target.value.toLowerCase())));
 });
-
-});
-
+function toggleMenu(){document.getElementById("navLinks").classList.toggle("show");}
+function closePopup(){document.getElementById("popup").style.display="none";}
+const slides=[
+"https://images.unsplash.com/photo-1441986300917",
+"https://images.unsplash.com/photo-1483985988355",
+"https://images.unsplash.com/photo-1529139574466"
+];
+let i=0;
+setInterval(()=>{
+document.getElementById("hero").style.backgroundImage=`url(${slides[i]})`;
+i=(i+1)%slides.length;
+},2500);
 </script>
-
 </body>
-  </html>
+</html>
